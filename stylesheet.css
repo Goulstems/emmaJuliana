@@ -1,0 +1,13 @@
+/* Health Label Styles */
+#healthLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+/* Player Image Styles */
+#playerImg {
+    width: 150px;
+    height: 200px;
+}
+
