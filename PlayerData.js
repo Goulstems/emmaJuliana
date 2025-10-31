@@ -1,4 +1,4 @@
-export const Player = {
+export const PlayerData = {
     class: "Robot",
     level: 1000,
     name: "LunarBlaster5000",
