@@ -15,20 +15,20 @@ function spawn() {
     PlayerData.element = playerImg;
     healthLabel.textContent = "HP: " + PlayerData.hp;       //Update their health label
 
+    //[[DAMAGE HANDLING]]
     //Utilize `setInterval` for a LOOP structure!
     let damageInterval = setInterval(function() {           
-        if (dmgToDeal > 0 && PlayerData.hp > 0) {
-            dmgToDeal -= 1;
-            PlayerData.hp -= 1; //rate at which health is being configured every iteration :: RATE 1
+        if (dmgToDeal > 0 && PlayerData.hp > 0) {           //As long as the player is alive, and there is damage to deal
+            dmgToDeal -= 1; PlayerData.hp -= 1;             //Deal damage, update Label
             healthLabel.textContent = "HP: " + PlayerData.hp;
-            if (PlayerData.hp <= 0) {
-                PlayerData.element.src = PlayerData.deathImg;
-                clearInterval(damageInterval);
+            if (PlayerData.hp <= 0) {                       //If the playerHealth has reached 0,
+                PlayerData.element.src = PlayerData.deathImg;   //Symbolize death state (switch sprite to deathImg)
+                clearInterval(damageInterval);                  //Utilize `clearInterval` to STOP LOOPING
                 // Respawn after 1 second
-                setTimeout(spawn, 1000);
+                setTimeout(spawn, 1000);                        //Recall `spawn` after 1 second! (respawn the player!)
             }
         }
-    }, 100); //1000ms = 1 SECOND! :: Refresh rate! -----------------------------------:: RATE 2
+    }, 100); //Refresh rate :: 100ms = 1/10th of a second!
 
 };
 
