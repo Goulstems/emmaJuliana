@@ -37,4 +37,4 @@ function spawn() {
 // Display character1's image on the webpage
 window.onload = function() {                
     spawn();
-};adawd
+};
