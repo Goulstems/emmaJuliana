@@ -10,27 +10,30 @@ Player.hp -=150;
 
 // Display character1's image on the webpage
 window.onload = function() {                
-    
-    // Set up player image
+    spawn();
+};
+
+function spawn() {
+    // Reset player HP and image
+    Player.hp = 100; // Or whatever starting HP you want
     playerImg.src = Player.image;
     Player.element = playerImg;
-    
-    // Update health label after damage
     healthLabel.textContent = "HP: " + Player.hp;
 
-    //TODO: LOOP via `setInterval` method!
-
-    let dmgToDeal = 50;           //Set amount of damage to deal!
-    setInterval(function() {      
-        if (dmgToDeal > 0) {           // Only if there's still damage to deal
-            dmgToDeal -= 1;            // Decrement damage counter
-            Player.hp -= 1;            // Deal 1 damage
+    let dmgToDeal = 100; // Set amount of damage to deal!
+    let damageInterval = setInterval(function() {
+        if (dmgToDeal > 0 && Player.hp > 0) {
+            dmgToDeal -= 1;
+            Player.hp -= 1; //rate at which health is being configured every iteration :: RATE 1
             healthLabel.textContent = "HP: " + Player.hp;
             if (Player.hp <= 0) {
                 Player.element.src = Player.deathImg;
+                clearInterval(damageInterval);
+                // Respawn after 1 second
+                setTimeout(spawn, 1000);
             }
         }
-    }, 10); // Every 16 ms ~ 60 FPS :: FRAMES PER SECOND! :: Refresh rate!
+    }, 100); //1000ms = 1 SECOND! :: Refresh rate! -----------------------------------:: RATE 2
 };
 
 // ______________________________________________________________________________________
