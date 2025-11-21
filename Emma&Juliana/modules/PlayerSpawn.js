@@ -1,4 +1,4 @@
-import { PlayerData } from "./PlayerData.js";
+import { PlayerData } from "./data/PlayerData.js";
 
 export function spawn(playerImg, healthLabel, dmgToDealInit = 100) {
     let dmgToDeal = dmgToDealInit;

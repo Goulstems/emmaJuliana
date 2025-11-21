@@ -11,3 +11,18 @@
     height: 200px;
 }
 
+.miniPesteringRobot {
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    animation: enemyFloat 2s ease-in-out infinite;
+}
+
+@keyframes enemyFloat {
+    0%, 100% {
+        transform: rotate(-10deg) translateY(0px);
+    }
+    50% {
+        transform: rotate(10deg) translateY(-10px);
+    }
+}

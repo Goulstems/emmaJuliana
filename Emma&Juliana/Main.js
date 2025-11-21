@@ -1,5 +1,6 @@
-import { spawn } from "./modules/spawn.js";
-import { enablePlayerMovement } from "./modules/movement.js";
+import { spawn } from "./modules/PlayerSpawn.js";
+import { enablePlayerMovement } from "./modules/PlayerMovement.js";
+import { spawnEnemies } from "./modules/enemies.js";
 
 let healthLabel = document.getElementById("healthLabel");   // References to HTML elements on the webpage
 let playerImg = document.getElementById("playerImg");
@@ -11,5 +12,5 @@ let playerImg = document.getElementById("playerImg");
 window.onload = function() {
     spawn(playerImg, healthLabel);
     enablePlayerMovement(playerImg);
-    
+    spawnEnemies();
 };
